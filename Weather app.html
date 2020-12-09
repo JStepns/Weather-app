@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="SRC/Style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/649e755b55.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Ipswich
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button"> 
+                        <div class="row">
+                            <div class="col">
+                                <input type = "search" placeholder = "🔍 Search your city" id = "search-box" />
+                            </div>
+                            <div class="col">
+                                <input type="submit" value="Search" id="search-button" />
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <button id="current-location-button">
+                <i class="fas fa-map-marker-alt"></i>
+            </button>
+        </form>
+        <div class="row">
+            <div class="col-12" id = "current-time">
+                <h5></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" id = "current-date">
+                <h5></h5>
+            </div>
+        </div>
+        <div class="row" id = "current-temp">
+            <div class="col-6" id = "current-temp-value">
+                35
+            </div>
+            <div class="col-6">
+                <a href="#" id="celsius">
+                    ℃
+                </a>
+                <a href="#" id="fahrenheit">
+                    ℉
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" id="current-temp-icon">
+                <i class="fas fa-cloud-sun"></i>
+            </div>
+        </div>
+        <div class="row" id = "min-max">
+            <div class="col-6" id = "min-temp">
+                Min
+            </div>
+            <div class="col-6" id = "max-temp">
+                Max
+            </div>
+        </div>
+        <div class="row" id = "weather-elements">
+            <div class="col-4" id = "pressure">
+                <em>
+                    Pressure
+                    <i class="fas fa-angle-double-down"></i>
+                </em>
+            </div>
+            <div class="col-4" id = "humidity">
+                <em>
+                    Humidity
+                    <i class="fas fa-tint"></i>
+                </em>
+            </div>
+            <div class="col-4" id = "wind">
+                <em>
+                    Wind
+                    <i class="fas fa-wind"></i>
+                </em>
+            </div>
+        </div>
+        <div class="row" id ="forecast">
+            <div class="col" id = "day2">
+                Day 2
+            </div>
+            <div class="col" id = "day3">
+                Day 3
+            </div>
+            <div class="col" id = "day4"> 
+                Day 4
+            </div>
+            <div class="col" id = "day5">
+                Day 5
+            </div>
+            <div class="col" id = "day6">
+                Day 6
+            </div>
+        </div>
+    </div>
+    <script src = "SRC/Weather app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
+</html>
