@@ -6,6 +6,11 @@ body {
 form {
   text-align: center;
 }
+p {
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  margin-left: 400px;
+}
 #dropdownMenu2 {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   color: black;
