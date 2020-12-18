@@ -2,7 +2,7 @@ function getTime(){
 let currentDateAndTime = new Date ();
 let currentTime = document.querySelector("#current-time");
 let currentDate = document.querySelector("#current-date");
-let hour = currentDateAndTime.getHours();
+let hour = ("0" + currentDateAndTime.getHours()).slice(-2);
 let minutes = ("0" + currentDateAndTime.getMinutes()).slice(-2);
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let day = days[currentDateAndTime.getDay()];
@@ -18,8 +18,8 @@ getTime();
 
 function displayLastUpdatedTime(timestamp){
   let date = new Date(timestamp);
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
+  let hours = ("0" + date.getHours()).slice(-2);
+  let minutes = ("0" + date.getMinutes()).slice(-2);
   return `${hours}:${minutes}`;
   
 }
@@ -39,6 +39,7 @@ function displayWeather(response) {
   let displayHumidity = document.querySelector("#humidity em");
   let displayWind = document.querySelector("#wind em");
   let lastUpdatedTime = document.querySelector("#last-updated-time h5");
+  let weatherIcon = document.querySelector("#current-temp-icon img");
   displayTemp.innerHTML = temp;
   displayMin.innerHTML = `Min: ${tempMin}`;
   displayMax.innerHTML = `Max: ${tempMax}`;
@@ -46,6 +47,8 @@ function displayWeather(response) {
   displayHumidity.innerHTML = `Humidity: ${humidity}%`;
   displayWind.innerHTML = `Wind speed: ${wind} m/s`;
   lastUpdatedTime.innerHTML = `Last updated: ${(displayLastUpdatedTime(response.data.dt*1000))}`;
+  weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showPosition(position){

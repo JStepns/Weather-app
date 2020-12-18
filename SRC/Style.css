@@ -39,6 +39,12 @@ p {
 #search-button {
   font-family: "Quicksand", sans-serif;
 }
+#last-updated-time h5 {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+}
 #current-temp {
   font-family: "Raleway", sans-serif;
   padding: 10px 0;
@@ -59,15 +65,13 @@ p {
   right: 34px;
   top: 20px;
 }
-#last-updated-time h5 {
-  text-align: center;
-  font-family: "Raleway", sans-serif;
+#current-temp-icon img {
+  margin: 0 auto;
+  display: block;
+  filter: contrast(200%);
+  max-width: 80px;
 }
-#current-temp-icon {
-  text-align: center;
-  font-size: 25px;
-  padding: 0 0 10px 0;
-}
+
 #min-max {
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -100,12 +104,11 @@ p {
   text-align: center;
   font-family: "Quicksand", sans-serif;
   font-size: 20px;
-  font-weight: 800;
   padding: 5px;
 }
 .container {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  height: 500px;
+  height: 550px;
   padding: 0;
   border-radius: 20px;
   border: 1px solid #7e6da8;
