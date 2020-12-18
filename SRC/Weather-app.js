@@ -88,6 +88,8 @@ let celsiusTemp = null;
 function displayFahrenheitTemp(event){
   event.preventDefault();
   let currentTemp = document.querySelector("#current-temp-value");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenheitTemp = celsiusTemp*9/5+32;
   currentTemp.innerHTML = Math.round(fahrenheitTemp);
 }
@@ -95,6 +97,8 @@ function displayFahrenheitTemp(event){
 function displayCelsiusTemp(event){
   event.preventDefault();
   let currentTemp = document.querySelector("#current-temp-value");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   currentTemp.innerHTML = Math.round(celsiusTemp);
 }
 

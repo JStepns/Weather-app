@@ -54,6 +54,13 @@ p {
   position: relative;
   left: 520px;
 }
+#temp-units .active {
+  color: black;
+  cursor: default;
+}
+#temp-units .active:hover {
+  text-decoration: none;
+}
 #celsius {
   font-size: 20px;
   position: relative;
