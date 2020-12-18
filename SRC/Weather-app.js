@@ -16,6 +16,14 @@ setInterval(getTime, 60000);
 }
 getTime();
 
+function displayLastUpdatedTime(timestamp){
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  return `${hours}:${minutes}`;
+  
+}
+
 function displayWeather(response) {
   document.querySelector("#dropdownMenu2").innerHTML = response.data.name;
   let temp = Math.round(response.data.main.temp);
@@ -27,15 +35,17 @@ function displayWeather(response) {
   let displayTemp = document.querySelector("#current-temp-value");
   let displayMin = document.querySelector("#min-temp");
   let displayMax = document.querySelector("#max-temp");
-  let displayPressure = document.querySelector("#pressure");
-  let displayHumidity = document.querySelector("#humidity");
-  let displayWind = document.querySelector("#wind");
+  let displayPressure = document.querySelector("#pressure em");
+  let displayHumidity = document.querySelector("#humidity em");
+  let displayWind = document.querySelector("#wind em");
+  let lastUpdatedTime = document.querySelector("#last-updated-time h5");
   displayTemp.innerHTML = temp;
   displayMin.innerHTML = `Min: ${tempMin}`;
   displayMax.innerHTML = `Max: ${tempMax}`;
   displayPressure.innerHTML = `Pressure: ${pressure} hPa`;
   displayHumidity.innerHTML = `Humidity: ${humidity}%`;
   displayWind.innerHTML = `Wind speed: ${wind} m/s`;
+  lastUpdatedTime.innerHTML = `Last updated: ${(displayLastUpdatedTime(response.data.dt*1000))}`;
 }
 
 function showPosition(position){
