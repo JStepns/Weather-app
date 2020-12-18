@@ -21,7 +21,6 @@ function displayLastUpdatedTime(timestamp){
   let hours = ("0" + date.getHours()).slice(-2);
   let minutes = ("0" + date.getMinutes()).slice(-2);
   return `${hours}:${minutes}`;
-  
 }
 
 function displayWeather(response) {
@@ -32,6 +31,7 @@ function displayWeather(response) {
   let pressure = response.data.main.pressure;
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
+  celsiusTemp = response.data.main.temp;
   let displayTemp = document.querySelector("#current-temp-value");
   let displayMin = document.querySelector("#min-temp");
   let displayMax = document.querySelector("#max-temp");
@@ -51,7 +51,7 @@ function displayWeather(response) {
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
-function showPosition(position){
+function displayPosition(position){
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let units = "metric";
@@ -63,7 +63,7 @@ function showPosition(position){
 }
 
 function getCurrentPosition(){
-  navigator.geolocation.getCurrentPosition(showPosition);
+  navigator.geolocation.getCurrentPosition(displayPosition);
 }
 
 let currentLocationButton = document.querySelector("#current-location-button");
@@ -83,4 +83,24 @@ function searchCity(event) {
 let form = document.querySelector("form");
 form.addEventListener("submit", searchCity);
 
+let celsiusTemp = null;
+
+function displayFahrenheitTemp(event){
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temp-value");
+  let fahrenheitTemp = celsiusTemp*9/5+32;
+  currentTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function displayCelsiusTemp(event){
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temp-value");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
