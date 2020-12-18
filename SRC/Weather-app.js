@@ -1,3 +1,4 @@
+function getTime(){
 let currentDateAndTime = new Date ();
 let currentTime = document.querySelector("#current-time");
 let currentDate = document.querySelector("#current-date");
@@ -11,6 +12,9 @@ let month = months[currentDateAndTime.getMonth()];
 let year = currentDateAndTime.getFullYear();
 currentTime.innerHTML = `${hour}:${minutes}`;
 currentDate.innerHTML = `${day} ${date} ${month} ${year}`;  
+setInterval(getTime, 60000);
+}
+getTime();
 
 function displayWeather(response) {
   document.querySelector("#dropdownMenu2").innerHTML = response.data.name;
