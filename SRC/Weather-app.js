@@ -1,4 +1,4 @@
-function getTime(){
+function getCurrentTime(){
 let currentDateAndTime = new Date ();
 let currentTime = document.querySelector("#current-time");
 let currentDate = document.querySelector("#current-date");
@@ -12,11 +12,11 @@ let month = months[currentDateAndTime.getMonth()];
 let year = currentDateAndTime.getFullYear();
 currentTime.innerHTML = `${hour}:${minutes}`;
 currentDate.innerHTML = `${day} ${date} ${month} ${year}`;  
-setInterval(getTime, 60000);
+setInterval(getCurrentTime, 60000);
 }
-getTime();
+getCurrentTime();
 
-function displayLastUpdatedTime(timestamp){
+function displayTime(timestamp){
   let date = new Date(timestamp);
   let hours = ("0" + date.getHours()).slice(-2);
   let minutes = ("0" + date.getMinutes()).slice(-2);
@@ -46,7 +46,7 @@ function displayWeather(response) {
   displayPressure.innerHTML = `Pressure: ${pressure} hPa`;
   displayHumidity.innerHTML = `Humidity: ${humidity}%`;
   displayWind.innerHTML = `Wind speed: ${wind} m/s`;
-  lastUpdatedTime.innerHTML = `Last updated: ${(displayLastUpdatedTime(response.data.dt*1000))}`;
+  lastUpdatedTime.innerHTML = `Last updated: ${(displayTime(response.data.dt*1000))}`;
   weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
@@ -69,6 +69,29 @@ function getCurrentPosition(){
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentPosition);
 
+function displayForecast(response){
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML=null;
+  let forecast = null;
+
+  for (let index=0;index<6;index++){
+    forecast = response.data.list[index];
+    forecastElement.innerHTML +=`
+            <div class="col-2"> 
+                <h5>
+                ${displayTime(forecast.dt*1000)}
+                </h5>
+                <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+                <div class="forecast-temp">
+                    <strong>
+                    ${Math.round(forecast.main.temp_max)}
+                    </strong>
+                    ${Math.round(forecast.main.temp_min)}
+                </div>
+            </div>
+            `;
+  }
+}
 
 function searchCity(event) {
   event.preventDefault();
@@ -78,6 +101,9 @@ function searchCity(event) {
   let apiUrl = `${apiEndpoint}?q=${city}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayWeather); 
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let form = document.querySelector("form");
