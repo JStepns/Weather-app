@@ -39,18 +39,6 @@ p {
 #search-button {
   font-family: "Quicksand", sans-serif;
 }
-#current-time {
-  text-align: center;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 900;
-  font-size: 20px;
-  padding: 10px 0 0 0;
-}
-#current-date {
-  text-align: center;
-  font-family: "Quicksand", sans-serif;
-  font-size: 20px;
-}
 #current-temp {
   font-family: "Raleway", sans-serif;
   padding: 10px 0;
@@ -93,40 +81,22 @@ p {
   padding: 40px 0;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
-}
-#pressure {
-  position: relative;
-  left: 300px;
-}
-#humidity {
-  position: relative;
-  left: 140px;
+  text-align: center;
 }
 #forecast {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
-}
-#day2 {
-  position: relative;
-  left: 225px;
-}
-#day3 {
-  position: relative;
-  left: 150px;
-}
-#day4 {
-  position: relative;
-  left: 75px;
-}
-#day5 {
-  position: relative;
-}
-#day6 {
-  position: relative;
-  right: 75px;
+  text-align: center;
+  padding: 10px 0 0 0;
 }
 .dropdown {
   display: inline-block;
+}
+.date-time {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  padding: 5px;
 }
 .container {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
