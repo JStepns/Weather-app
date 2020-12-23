@@ -60,6 +60,9 @@ function displayPosition(position){
   let apiUrl = `${apiEndpoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentPosition(){
@@ -84,9 +87,9 @@ function displayForecast(response){
                 <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
                 <div class="forecast-temp">
                     <strong>
-                    ${Math.round(forecast.main.temp_max)}
+                    ${Math.round(forecast.main.temp_max)}°
                     </strong>
-                    ${Math.round(forecast.main.temp_min)}
+                    ${Math.round(forecast.main.temp_min)}°
                 </div>
             </div>
             `;
