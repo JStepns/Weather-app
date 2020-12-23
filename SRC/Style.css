@@ -108,6 +108,7 @@ p {
 }
 #forecast img {
   filter: contrast(200%);
+  width: 80px;
 }
 .dropdown {
   display: inline-block;

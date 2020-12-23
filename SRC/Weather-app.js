@@ -41,8 +41,8 @@ function displayWeather(response) {
   let lastUpdatedTime = document.querySelector("#last-updated-time h5");
   let weatherIcon = document.querySelector("#current-temp-icon img");
   displayTemp.innerHTML = temp;
-  displayMin.innerHTML = `Min: ${tempMin}`;
-  displayMax.innerHTML = `Max: ${tempMax}`;
+  displayMin.innerHTML = `Min: ${tempMin}°`;
+  displayMax.innerHTML = `Max: ${tempMax}°`;
   displayPressure.innerHTML = `Pressure: ${pressure} hPa`;
   displayHumidity.innerHTML = `Humidity: ${humidity}%`;
   displayWind.innerHTML = `Wind speed: ${wind} m/s`;
@@ -136,4 +136,3 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
